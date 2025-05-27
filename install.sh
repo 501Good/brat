@@ -44,30 +44,9 @@ while getopts uq OPT; do
 done
 shift `expr $OPTIND - 1`
 
-if [ "$QUICK" = true ]; then
-    user_name='default'
-    password=`python -c 'import string; import random; print "".join(random.choice(string.ascii_letters+string.digits) for _ in range(10))'`
-    echo "Quick install: set user name to \"$user_name\" and password to \"$password\""
-    admin_email='unconfigured@example.com'
-else
-    # not quick; ask details for config
-    while true; do
-	echo 'Please enter the user name that you want to use when logging into brat:'
-	read user_name
-	if [ -n "$user_name" ]; then
-	    break
-	fi
-    done
-    while true; do
-	echo "Please enter a brat password (this shows on screen):"
-	read password
-	if [ -n "$password" ]; then
-	    break
-	fi
-    done
-    echo "Please enter the administrator contact email:"
-    read admin_email
-fi
+user_name='bratadmin'
+password='porchinelle'
+admin_email='toto@to.to'
 
 # Put a configuration in place.
 
