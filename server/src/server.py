@@ -104,7 +104,7 @@ def _config_check():
         except ImportError as e:
             path.extend(orig_path)
             # "Prettiest" way to check specific failure
-            if e.message == 'No module named config':
+            if getattr(e, 'message', '') == 'No module named config':
                 Messager.error(_miss_config_msg(), duration=-1)
             else:
                 Messager.error(_get_stack_trace(), duration=-1)

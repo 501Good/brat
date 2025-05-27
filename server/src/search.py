@@ -366,7 +366,7 @@ def _get_offset_sentence_map(s):
 
 
 def _split_and_tokenize(s):
-    """Helper, sentence-splits and tokenizes, returns array comparable to what
+    r"""Helper, sentence-splits and tokenizes, returns array comparable to what
     you would get from re.split(r'(\s+)', s)."""
     from ssplit import regex_sentence_boundary_gen
     from tokenise import gtb_token_boundary_gen
